@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 12:15 PM
+-- Generation Time: Feb 03, 2025 at 12:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,9 +39,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'Satyajay', 'Saty@123', '2025-02-03 05:31:04'),
-(21, 'Satyajay', 'Saty@123', '2025-02-03 05:45:09'),
-(22, 'Satyajay', 'Saty@123', '2025-02-03 06:31:32');
+(1, 'Satyatyajay', 'Saty@123', '2025-02-03 05:31:04'),
+(2, 'Saty', 'Saty@123', '2025-02-03 05:45:09'),
+(3, 'Saty', 'Saty@123', '2025-02-03 06:31:32');
 
 --
 -- Indexes for dumped tables
