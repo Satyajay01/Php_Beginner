@@ -1,3 +1,14 @@
+<?php
+include("config/database.php");
+
+// Get all users
+$sql = "select * from users";
+$result = $conn->query($sql);
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,19 +33,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        <a href="" class="button edit">Edit</a>
-                        <a href="" class="button delete">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan='3'>No record found!</td>
-                </tr>";
+                <?php
+                if ($result->num_rows > 0) {
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                ?>
+                        <tr>
+                            <td> <?php echo $row['username'] ?> </td>
+                            <td> <?php echo date("d-m-Y H:i A", strtotime($row['created_at'])) ?> </td>
+                            <td>
+                                <a href="" class="button edit">Edit</a>
+                                <a href="" class="button delete">Delete</a>
+                            </td>
+                        </tr>
+                <?php
+                    }
+                } else{
+                    echo "<tr><td colspan='3'>No recod found</td></tr>";
+                }
+                ?>
 
             </tbody>
         </table>
