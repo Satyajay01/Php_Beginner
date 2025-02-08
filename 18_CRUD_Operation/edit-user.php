@@ -1,5 +1,37 @@
 <?php
+include("config/database.php");
+// step 1 Get users data. by user id.
 
+if(isset($_GET['id'])){
+
+    $sql = 'select * from users where id = '.$_GET['id'];
+    $result = $conn->query($sql);
+    $user = mysqli_fetch_assoc($result);
+
+}else{
+    echo "<h1> Invalid Request! </h1>";
+    exit;
+}
+
+
+
+
+
+// step 2 - Update user by form submit.
+if(isset($_POST['submit']))
+{
+    extract($_POST);
+
+    $sql = "UPDATE users SET username = '$username', password = '$password' where id = " . $_GET['id'];
+
+    $result =  $conn->query($sql);
+    if ($result) {
+        echo "Users has ben Updated! ";
+    }
+    else{
+        echo "Something wrong! ";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +49,12 @@
     <section class="section">
         <h2>Edit User</h2>
 
-        <form action="" method="post">
+        <form action="edit-user.php?id=<?php echo $user['id'] ?>" method="post">
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required value="">
+                <input type="text" placeholder="Enter Username" name="username" required value="<?php echo $user['username'] ?>">
+                <label for="psw">Password</label>
+                <input type="text" placeholder="Enter Password" name="password" required value="<?php echo $user['password'] ?>">
 
                 <button type="submit" name="submit">Update</button>
             </div>

@@ -43,8 +43,8 @@ $result = $conn->query($sql);
                             <td> <?php echo $row['username'] ?> </td>
                             <td> <?php echo date("d-m-Y H:i A", strtotime($row['created_at'])) ?> </td>
                             <td>
-                                <a href="" class="button edit">Edit</a>
-                                <a href="" class="button delete">Delete</a>
+                                <a href="./edit-user.php?id=<?php echo $row['id'] ?>" class="button edit">Edit</a>
+                                <a href="#" class="button delete">Delete</a>
                             </td>
                         </tr>
                 <?php
