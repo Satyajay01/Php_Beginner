@@ -1,6 +1,10 @@
 <?php
 include("config/database.php");
 
+// Session variable
+$_SESSION['name'] = "🐘 : ";
+echo $_SESSION['name'];
+
 // Delete user , if id is set
 if(isset($_GET['id'])){
     extract($_GET);

@@ -1,5 +1,12 @@
 <?php
 include("config/database.php");
+
+
+// Session 
+echo $_SESSION['name'];
+
+
+
 // form submit working
     if(isset($_POST['submit']))
     {

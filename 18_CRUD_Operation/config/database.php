@@ -1,4 +1,8 @@
 <?php
+// for session Start 
+session_start();
+
+// for database Connection
 $servername = "localhost";
 $username = "root";
 $password = "";
