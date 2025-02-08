@@ -1,9 +1,24 @@
 <?php
 include("config/database.php");
 
+// Delete user , if id is set
+if(isset($_GET['id'])){
+    extract($_GET);
+    $sql = "DELETE FROM users where id = " . $id;
+    $result = $conn->query($sql);
+    if($result){
+        echo "User has ben Deleted!";
+    }else{
+        echo "Something wrong! ";
+    }
+}
+
+
 // Get all users
 $sql = "select * from users";
 $result = $conn->query($sql);
+
+
 
 
 
@@ -44,7 +59,7 @@ $result = $conn->query($sql);
                             <td> <?php echo date("d-m-Y H:i A", strtotime($row['created_at'])) ?> </td>
                             <td>
                                 <a href="./edit-user.php?id=<?php echo $row['id'] ?>" class="button edit">Edit</a>
-                                <a href="#" class="button delete">Delete</a>
+                                <a href="./users.php?id=<?php echo $row['id'] ?>" class="button delete">Delete</a>
                             </td>
                         </tr>
                 <?php
